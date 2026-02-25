@@ -1,6 +1,10 @@
 # NES template
 A template for making NES games.
 
+## Structure
+- `code.asm` is what is compiled and is the base and contains a lot of stuff you probably won't touch (and variable definitions)
+- `game.asm` is only the important code for the game, and contains the mainloop and vblank routines.
+
 ## Building the source code
 1. Download repo however
 1. Run `build.bat` or `./build.sh` (double click in file explorer or run in terminal, I don't care)
@@ -19,5 +23,5 @@ A template for making NES games.
 **To run**: Run `code.nes` using an NES emulator (after building). `nester.exe` is provided, but for debugging another such as [FCEUX](https://fceux.com/web/download.html) is recommended.
 
 ### Opcodes
-A very nice list of opcodes for the NES' hardware can be found [here](https://wiki.preterhuman.net/NES_Programming_Guide), and the instructions for the specific ASM6 assembler can be found [here](./Instructs.txt).
+A list of opcodes for the NES' hardware can be found [here](./Opcodes), and the instructions for the specific ASM6 assembler can be found [here](./Instructs.txt).
 
