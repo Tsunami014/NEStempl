@@ -37,7 +37,7 @@ BTN_RIGHT  = %00000001
 ; Please note these variables all default to 0
 .enum $0000  ; Start variables at ram location 0
 ; .dsb 1 means reserve one byte of space, .dsb 2 means reserve 2 bytes (pointer)
-; Temporary vars with various uses OUTSIDE VBLANK
+; Temporary variables with many uses
 tmp1         .dsb 1
 tmp2         .dsb 1
 tmp3         .dsb 1
@@ -198,7 +198,6 @@ palette:
 
 
   .include "tilemap/tilemap.asm"  ; Includes Tilemap&PrevTilemap label
-
 
 
   .org $FFFA     ; Three vectors starts here

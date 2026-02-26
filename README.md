@@ -22,6 +22,8 @@ A template for making NES games.
 
 **To run**: Run `code.nes` using an NES emulator (after building). `nester.exe` is provided, but for debugging another such as [FCEUX](https://fceux.com/web/download.html) is recommended.
 
-### Opcodes
-A list of opcodes for the NES' hardware can be found [here](./Opcodes), and the instructions for the specific ASM6 assembler can be found [here](./Instructs.txt).
-
+## How the fudge do I program this thing?
+- A list of opcodes for the NES' hardware can be found in [Opcodes.txt](./Opcodes.txt)
+- The instructions for the specific ASM6 assembler can be found in [Instructs.txt](./Instructs.txt).
+- A lot of helpful guides on how to program stuff can be found on [nesdev.org](https://www.nesdev.org/wiki/Programming_guide)
+    - On a subpage of nesdev is a convenient all-in-one reference for the PPU [here](https://www.nesdev.org/wiki/PPU_programmer_reference)
