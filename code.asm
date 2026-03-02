@@ -131,7 +131,7 @@ RESET:
   STA PPUSCROLL
   STA PPUSCROLL
 
-  .include "game.asm"  ; Includes the labels for VBLANK and continues this function
+  .include "code/main.asm"  ; Includes the labels for VBLANK and continues this function
 
 
 
