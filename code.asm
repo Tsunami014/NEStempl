@@ -107,7 +107,7 @@ RESET:
 
 
 ; Load palettes
-  LDA PPUSTATUS     ; Read PPU status to reset the high/low latch
+  LDA PPUSTATUS  ; Reset high/low latch
   ; Write at the PPU's $3F00 address
   LDA #$3F
   STA PPUADDR       
@@ -121,15 +121,26 @@ RESET:
   CPX #$20          ; Only copy until hex $10, decimal 16 - copying 16 bytes = 4 sprites
   BNE -
 
+; Reset attributes
+  LDA PPUSTATUS  ; Reset high/low latch
+  ; Write at the PPU's $23C0 address
+  LDA #$23
+  STA PPUADDR
+  LDA #$C0
+  STA PPUADDR
+  LDX #$00
+  LDA #$00
+; Reset attributes loop
+- STA PPUDATA
+  INX
+  CPX #$08
+  BNE -
+
 
 
 ;;;;;;;;;  Game initialisation
 
 
-
-  LDA #$00  ; Start with no scroll (set scroll bytes to 0)
-  STA PPUSCROLL
-  STA PPUSCROLL
 
   .include "code/main.asm"  ; Includes the labels for VBLANK and continues this function
 
@@ -147,14 +158,14 @@ NMI:  ; During VBLANK
   TYA
   PHA
 
+  ; Load all values in $0200 into OAM
   LDA #$00
-  STA $2003       ; Set the low byte (00) of the RAM address
+  STA OAMADDR
   LDA #$02
-  STA $4014       ; Set the high byte (02) of the RAM address, start the transfer
+  STA OAMDMA
    
   JSR ReadController  ; Get the current button data for player 1
-  
-  JMP VBLANK  ; Returning from interrupt should occur here
+  JSR VBLANK  ; Defined in main.asm
 
   ; Restore registers from stack
   PLA
@@ -203,8 +214,8 @@ ReadController:
 
   .org $D000
 palette:
-  .db $21,$19,$27,$2D,  $21,$28,$27,$2D,  $21,$17,$27,$00,  $21,$3A,$38,$2D   ; Background palette
-  .db $21,$1C,$15,$14,  $21,$02,$38,$3C,  $21,$1C,$15,$14,  $21,$02,$38,$3C   ; Sprite palette
+  .db $2A,$16,$11,$14,  $21,$02,$38,$3C,  $21,$1C,$15,$14,  $21,$02,$38,$3C   ; Sprite palette
+  .db $2A,$16,$11,$14,  $21,$28,$27,$2D,  $21,$17,$27,$00,  $21,$3A,$38,$2D   ; Background palette
 
 
   .org $FFFA     ; Three vectors starts here

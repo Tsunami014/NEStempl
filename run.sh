@@ -1,1 +1,1 @@
-wine tools/nester.exe code.nes
+wine tools/fceux/fceux64.exe code.nes code.nes

@@ -1,1 +1,1 @@
-tools/nester.exe code.nes
+tools/fceux/fceux64.exe code.nes

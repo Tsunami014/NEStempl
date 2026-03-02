@@ -12,7 +12,7 @@ A template for making NES games.
 ## Editing
 **To edit the code**: Edit the `.asm` files in the main folder. `code.asm` is the main file which includes other files in the folder.
 
-**To edit the tileset**: A program such as yychr is required. Use it to edit `tiles.chr`.
+**To edit the tileset**: A program such as yychr (provided) is required. Use it to edit `tiles.chr`.
 
 **To build**:
     - Run `build.bat` or `./buildLinux` depending on your OS.
@@ -20,10 +20,11 @@ A template for making NES games.
 
 **To run**:
     - Run `run.bat` or `./run.sh`
-    - Or run `code.nes` using an NES emulator (after building). `nester.exe` is provided, but for debugging another such as [FCEUX](https://fceux.com/web/download.html) is recommended.
+    - Or run `code.nes` using an NES emulator (after building). `fceux` is provided which contains useful debugging tools!
 
 ## How the fudge do I program this thing?
 - A list of opcodes for the NES' hardware can be found in [Opcodes.txt](./Opcodes.txt)
 - The instructions for the specific ASM6 assembler can be found in [Instructs.txt](./Instructs.txt).
-- A lot of helpful guides on how to program stuff can be found on [nesdev.org](https://www.nesdev.org/wiki/Programming_guide)
+- A very helpful wiki on how to program stuff can be found on [nesdev.org](https://www.nesdev.org/wiki/Programming_guide)
     - On a subpage of nesdev is a convenient all-in-one reference for the PPU [here](https://www.nesdev.org/wiki/PPU_programmer_reference)
+- A guide which teaches you how to program each part can be found [here](https://taywee.github.io/NerdyNights/nerdynights.html)
